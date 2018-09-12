@@ -2,6 +2,9 @@
 
 > A Vue.js project
 
+## SCREENSHOT
+![VueTube](https://github.com/BolajiOlajide/vuetube/blob/master/screenshot/screenshot.png)
+
 ## Build Setup
 
 ``` bash
