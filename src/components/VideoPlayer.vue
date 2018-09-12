@@ -9,21 +9,19 @@
       </div>
     </div>
     <div class="video-list">
-    <div :key="video.id" v-for="video in videos" class="thumbnail" @click="chooseVideo(video)">
-      <div class="thumbnail-img">
-        <img :src="video.thumbnail" />
-      </div>
-      <div class="thumbnail-info">
-        <h3>{{video.title}}</h3>
-        <p>{{video.creator}}</p>
-        <p class="thumbnail-views">{{video.views}} Views</p>
-      </div>
+      <VideoCard
+        v-for="video in videos"
+        :video="video"
+        :key="video.id"
+        :chooseVideo="chooseVideo"
+      />
     </div>
-  </div>
   </div>
 </template>
 
 <script>
+import VideoCard from '@/components/VideoCard'
+
 const videos = [
   {
     id: 1,
@@ -78,6 +76,9 @@ const videos = [
 ]
 
 export default {
+  components: {
+    VideoCard
+  },
   name: 'VideoPlayer',
   data () {
     return {
@@ -100,30 +101,10 @@ export default {
 </script>
 
 <style scoped>
-  .thumbnail {
-    display:flex;
-  }
-
-  .thumbnail img{
-    width:168px;
-  }
-
-  .thumbnail-info{
-    margin-left:20px;
-  }
-
-  .thumbnail h3{
-    font-size:16px;
-  }
-
   h3,
   p{
     margin:0;
     padding:0;
-  }
-
-  .thumbnail-views{
-    font-size:14px;
   }
 
   .video-player {
@@ -146,9 +127,5 @@ export default {
     color: white;
     border: none;
     padding: 10px 20px;
-  }
-
-  .thumbnail-img {
-    cursor: pointer;
   }
 </style>
